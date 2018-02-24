@@ -1,14 +1,21 @@
-html {
-    background-color: green;
-    font-size: 20px;
-  }
-  
-  ul {
-    background: red;
-    padding: 10px;
-    border: 1px solid black;
-  }
-  
-  li {
-    margin-left: 20px;
-  }
+p {
+  margin: 5px;
+  padding: 10px;
+  border: 2px solid black;
+  background-color: cyan;
+}
+
+p:nth-child(2) {
+  width: 150px;
+  font-size: 16px;
+}
+
+p:nth-child(3) {
+  width: 350px;
+  font-size: 2em;
+}
+
+p:nth-child(4) {
+  width: 350px;
+  font-size: 32px;
+}
