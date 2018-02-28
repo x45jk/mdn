@@ -1,0 +1,172 @@
+/* General setup */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  min-width: 1000px;
+  max-width: 1400px;
+}
+
+/* Layout */
+
+section {
+  float: left;
+  width: 50%;
+}
+
+aside {
+  float: left;
+  width: 30%;
+}
+
+nav {
+  float: left;
+  width: 20%;
+}
+
+footer {
+  clear: both;
+}
+
+header, section, aside, nav, footer {
+  padding: 20px;
+}
+
+/* header and footer */
+
+header, footer {
+  border-top: 5px solid #a66;
+  border-bottom: 5px solid #a66;
+}
+
+/* WRITE YOUR CODE BELOW HERE */
+@font-face {
+  font-family: 'goudy_bookletter_1911regular';
+  src: url('fonts/goudybookletter1911-webfont.woff2') format('woff2'),
+       url('fonts/goudybookletter1911-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'philosopherregular';
+  src: url('fonts/philosopher-regular-webfont.woff2') format('woff2'),
+       url('fonts/philosopher-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+/* typography stuff */
+
+html {
+  font-family: goudy_bookletter_1911regular, serif;
+  font-size: 10px;
+}
+
+h1, h2 {
+  font-family: philosopherregular, sans-serif;
+  letter-spacing: 1.5px;
+}
+
+h1 {
+  font-size: 5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3.2rem;
+}
+
+p, li {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  word-spacing: 4px;
+}
+
+section h2+p {
+  text-indent: 20px;
+}
+
+/* Link styling */
+
+a {
+  outline: none;
+}
+
+a:link {
+  color: #a66;
+}
+
+a:visited {
+  color: #a66;
+}
+
+a:focus {
+  color: #a66;
+}
+
+a:hover {
+  color: #a66;
+  text-decoration: none;
+}
+
+a:active {
+  color: #a66;
+  text-shadow: -1px -1px 1px rgb(134, 47, 47),
+             0px 2px 1px rgba(134, 43, 43, 0.5),
+             2px 2px 3px rgba(131, 42, 42, 0.7);
+}
+
+a[href*="http"] {
+  background: url('../images/external-link-52.png') no-repeat 100% 0;
+  background-size: 16px 16px;
+  padding-right: 19px;
+}
+
+/* Lists styling */
+
+ul {
+  line-height: 1.5;
+  list-style-type: square;
+}
+
+ol {
+  list-style-type: lower-roman;
+}
+
+/* nav menu */
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+nav ul a {
+  outline: none;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+  text-align: center;
+  line-height: 3;
+  font-size: 2.2rem;
+  color: #a66;
+  border: thin solid #a66;
+}
+
+nav li a:hover, nav li a:focus {     
+  background: #a66;
+  color: white;
+}
+
+nav li a:active {
+  background: black;
+  color: white;
+}
