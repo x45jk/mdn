@@ -1,50 +1,97 @@
-/* General setup */
+/* spacing */
 
-@font-face {
-  font-family: 'alex';
-  src: url('fonts/alexbrush-regular-webfont.woff2') format('woff2'),
-       url('fonts/alexbrush-regular-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid purple;
 }
 
-@font-face {
-  font-family: 'pro';
-  src: url('fonts/sourcesanspro-it-webfont.woff2') format('woff2'),
-       url('fonts/sourcesanspro-it-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
+thead th:nth-child(1) {
+  width: 30%;
 }
+
+thead th:nth-child(2) {
+  width: 20%;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+}
+
+thead th:nth-child(4) {
+  width: 35%;
+}
+
+th, td {
+  padding: 20px;
+}
+
+/* typography */
 
 html {
-  font-size: 10px;
-  margin: 0;
-  font-family: sans-serif;
+  font-family: 'helvetica neue', helvetica, arial, sans-serif;
 }
 
-body {
-  width: 80%;
-  max-width: 800px;
-  margin: 0 auto;
+thead th, tfoot th {
+  font-family: 'Rock Salt', cursive;
 }
 
-/* Typography */
-
-h1 {
-  font-size: 3.2rem;
-  font-family: 'Indie Flower', cursive;
+th {
+  letter-spacing: 2px;
 }
 
-h2 {
-  font-size: 2.4rem;
-  font-family: 'Indie Flower', cursive;
+td {
+  letter-spacing: 1px;
 }
 
-p {
-  font-size: 1.4rem;
-  line-height: 1.6;
-  word-spacing: 0.6rem;
-  font-family: 'Slabo 27px', serif;
+tbody td {
+  text-align: center;
+}
+
+tfoot th {
+  text-align: right;
+}
+
+/* Graphics and colors */
+
+thead, tfoot {
+  background: url(../images/leopardskin.jpg);
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+thead th, tfoot th, tfoot td {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+  border: 3px solid purple;
+}
+
+/* Zebra striping */
+
+tbody tr:nth-child(odd) {
+  background-color: #ff33cc;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #e495e4;
+}
+
+tbody tr {
+  background-image: url(noise.png);
+}
+
+table {
+  background-color: #ff33cc;
+}
+
+/* Styling the caption */
+
+caption {
+  font-family: 'Rock Salt', cursive;
+  padding: 20px;
+  font-style: italic;
+  caption-side: bottom;
+  color: #666;
+  text-align: right;
+  letter-spacing: 1px;
 }
