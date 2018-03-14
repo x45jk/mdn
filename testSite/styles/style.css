@@ -1,22 +1,15 @@
 html {
   font-family: sans-serif;
-  font-size: 10px;
 }
 
-/* Your CSS below here */
-p {
-  width: 200px;
-  height: 50px;
-  text-align: center;
-  line-height: 2.8;
-  font-size: 1.8rem;  /* 1rem = 10px */
-  text-shadow: 1px 1px 1px black;
-  border-radius: 10px;
-  border: 1px solid rgb(97, 1, 1);
-  background: linear-gradient(to left top, rgba(0,0,0,0.5), rgba(0,0,0,0.5) 30%, rgba(0,0,0,0));
-  box-shadow: 2px 2px 2px rgb(245, 116, 116),
-              inset 3px 3px 3px rgba(255, 255, 255, 0.5),
-              inset -3px -3px 3px rgba(0,0,0,0.5);
-  color: red;
-  background-color: red;
+body {
+  width: 50%;
+  max-width: 800px;
+  min-width: 480px;
+  margin: 0 auto;
+}
+
+.lastResult {
+  color: white;
+  padding: 3px;
 }
