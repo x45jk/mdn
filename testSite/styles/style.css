@@ -1,13 +1,27 @@
 html {
   font-family: sans-serif;
 }
-body {
-  width: 50%;
-  max-width: 800px;
-  min-width: 480px;
+
+form {
+  max-width: 504px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px 5%;
 }
-.lastResult {
-  color: white;
-  padding: 3px;
+
+form label {
+  grid-column: auto / span 2;
+  text-align: right;
+}
+
+form input {
+  grid-column: auto / span 3;
+}
+
+form p {
+  grid-row: 4 / 5;
+  grid-column: auto / span 3;
+  color: #999;
+  font-style: italic;
 }
