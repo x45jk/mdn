@@ -1,68 +1,44 @@
-var randomNumber = Math.floor(Math.random()*100) + 1;
-  var guesses = document.querySelector('.guesses');
-  var lastResult = document.querySelector('.lastResult');
-  var lowOrHi = document.querySelector('.lowOrHi');
-  var guessSubmit = document.querySelector('.guessSubmit');
-  var guessField = document.querySelector('.guessField');
-  var guessCount = 1;
-  var resetButton;
-  
-  function checkGuess() {
- 
-    var userGuess = Number(guessField.value);
-    if(guessCount === 1) {
-      guesses.textContent = 'Previous guesses: ';
-    }
-    guesses.textContent += userGuess + ' ';
- 
-    if(userGuess === randomNumber) {
-      lastResult.textContent = 'Congratulations! You got it right!';
-      lastResult.style.backgroundColor = 'green';
-      lowOrHi.textContent = '';
-      setGameOver();
-    } else if(guessCount === 10) {
-      lastResult.textContent = '!!!GAME OVER!!!';
-      setGameOver();
-    } else {
-      lastResult.textContent = 'Wrong!';
-      lastResult.style.backgroundColor = 'red';
-      if(userGuess < randomNumber) {
-        lowOrHi.textContent = 'Last guess was too low!';
-      } else if(userGuess > randomNumber) {
-        lowOrHi.textContent = 'Last guess was too high!';
-      }
-    }
- 
-    guessCount++;
-    guessField.value = '';
-    guessField.focus();
+var customName = document.getElementById('customname');
+var randomize = document.querySelector('.randomize');
+var story = document.querySelector('.story');
+
+function randomValueFromArray(array){
+  return array[Math.floor(Math.random()*array.length)];
+}
+
+var storyText = "It was 94 farenheit outside, so :insertX: went for a walk. \
+                 When they got to :insertY:, they stared in horror for a few moments, \
+                 then :insertZ:. Bob saw the whole thing, but he was not surprised — \
+                 :insertX: weighs 300 pounds, and it was a hot day.";
+
+var insertX = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
+var insertY = ["the soup kitchen", "Disneyland", "the White House"];
+var insertZ = ["spontaneously combusted", "melted into a puddle on the sidewalk", "turned into a slug and crawled away"];
+
+randomize.addEventListener('click', result);
+
+function result() {
+  var newStory = storyText;
+  var xItem = randomValueFromArray(insertX);
+  var yItem = randomValueFromArray(insertY);
+  var zItem = randomValueFromArray(insertZ);
+
+  newStory = newStory.replace(/:insertX:/g, xItem);
+  newStory = newStory.replace(/:insertY:/g, yItem);
+  newStory = newStory.replace(/:insertZ:/g, zItem);
+
+  if(customName.value != '') {
+    var name = customName.value;
+    newStory = newStory.replace(/Bob/g, name);
   }
-  guessSubmit.addEventListener('click', checkGuess);
-  
-  function setGameOver() {
-	  guessField.disabled = true;
-	  guessSubmit.disabled = true;
-	  resetButton = document.createElement('button');
-	  resetButton.textContent = 'Start new game';
-	  document.body.appendChild(resetButton);
-	  resetButton.addEventListener('click', resetGame);
+
+  if(document.getElementById("uk").checked) {
+    var weight = Math.round(21.42857);
+    var temperature =  Math.round(34.44444);
+    newStory = newStory.replace(/300 pounds/g, weight+' stone');
+    newStory = newStory.replace(/94 farenheit/g, temperature+' centigrade');
   }
-  
-  function resetGame() {
-	  guessCount = 1;
-	
-	  var resetParas = document.querySelectorAll('.resultParas p');
-	  for(var i = 0; i < resetParas.length; i++) {
-		  resetParas[i].textContent = '';
-	  }
-	  resetButton.parentNode.removeChild(resetButton);
-	
-	  guessField.disabled = false;
-	  guessSubmit.disabled = false;
-	  guessField.value = '';
-	  guessField.focus();
-	
-	  lastResult.style.backgroundColor = 'white';
-	
-	  randomNumber = Math.floor(Math.random()) + 1;
-  }
+
+  story.textContent = newStory;
+  story.style.visibility = 'visible';
+}
