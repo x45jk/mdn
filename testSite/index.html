@@ -6,20 +6,21 @@
     <link href="styles/style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div>
-      <label for="customname">Enter custom name:</label>
-      <input id="customname" type="text" placeholder="">
-    </div>
-    <div>
-      <label for="us">US</label><input id="us" type="radio" name="ukus" value="us" checked>
-      <label for="uk">UK</label><input id="uk" type="radio" name="ukus" value="uk">
-    </div>
-    <div>
-      <button class="randomize">Generate random story</button>
-    </div>
-    <!-- Thanks a lot to Willy Aguirre for his help with the code for this assessment -->
-    <p class="story"></p>
-
+    <form>
+      <div>
+        <label for="fname">First name: </label>
+        <input id="fname" type="text">
+      </div>
+      <div>
+        <label for="lname">Last name: </label>
+        <input id="lname" type="text">
+      </div>
+      <div>
+         <input id="submit" type="submit">
+      </div>
+    </form>
+    <p></p>
+    
     <script src="scripts/script.js"></script>
   </body>
 </html>
