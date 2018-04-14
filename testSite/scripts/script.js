@@ -1,24 +1,17 @@
-function pow(x, n) {
-    var result = 1;
-  
-    for (var i = 0; i < n; i++) {
-      result *= x;
-    }
-  
-    return result;
+function addClass(obj, cls) {
+   var mass = obj.className.split(' ');
 }
 
-function arrFunction() {
-  var array = new Array(4);
-  array[0] = 'a';
-  array[4] = 'b';
-  array[7] = 7;
+var obj = {
+   className: 'open menu'
+};
 
-  console.log(array);
-}
+addClass(obj, 'new'); // obj.className='open menu new'
+addClass(obj, 'open'); // без изменений (класс уже существует)
+addClass(obj, 'me'); // obj.className='open menu new me'
+addClass(obj, 'me');
+addClass(obj, 'new');
+addClass(obj, 'menu');
+addClass(obj, 'qwert');
 
-var arr = ["Я", "изучаю", "JavaScript"];
-
-var mass = arr.splice(1, 1); // начиная с позиции 1, удалить 1 элемент
-
-alert( mass ); //  осталось ["Я", "JavaScript"]
+alert(obj.className); 
