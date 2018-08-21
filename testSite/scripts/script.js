@@ -1,69 +1,58 @@
-var input = document.querySelector('input');
-var btn = document.querySelector('button');
-var para = document.querySelector('p');
+var header = document.querySelector('header');
+var section = document.querySelector('section');
 
-btn.onclick = function() {
-  var code = input.value;
-  para.textContent = eval(code);
+var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+
+request.responseType = 'json';
+request.send();
+
+request.onload = function() {
+  var superHeroes = request.response;
+  populateHeader(superHeroes);
+  showHeroes(superHeroes);
 }
 
-function Person(first, last, age, gender, interests) {
-  this.name = {
-    first,
-    last
-  };
-  this.age = age;
-  this.gender = gender;
-  this.interests = interests;
-};
+function populateHeader(jsonObj) {
+  var myH1 = document.createElement('h1');
+  myH1.textContent = jsonObj['squadName'];
+  header.appendChild(myH1);
 
-Person.prototype.bio = function() {
-  // First define a string, and make it equal to the part of
-  // the bio that we know will always be the same.
-  var string = this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. ';
-  // define a variable that will contain the pronoun part of
-  // the second sentence
-  var pronoun;
-  // check what the value of gender is, and set pronoun
-  // to an appropriate value in each case
-  if(this.gender === 'male' || this.gender === 'Male' || this.gender === 'm' || this.gender === 'M') {
-    pronoun = 'He likes ';
-  } else if(this.gender === 'female' || this.gender === 'Female' || this.gender === 'f' || this.gender === 'F') {
-    pronoun = 'She likes ';
-  } else {
-    pronoun = 'They like ';
-  }
-  // add the pronoun string on to the end of the main string
-  string += pronoun;
-  // use another conditional to structure the last part of the
-  // second sentence depending on whether the number of interests
-  // is 1, 2, or 3
-  if(this.interests.length === 1) {
-    string += this.interests[0] + '.';
-  } else if(this.interests.length === 2) {
-    string += this.interests[0] + ' and ' + this.interests[1] + '.';
-  } else {
-    // if there are more than 2 interests, we loop through them
-    // all, adding each one to the main string followed by a comma,
-    // except for the last one, which needs an and & a full stop
-    for(var i = 0; i < this.interests.length; i++) {
-      if(i === this.interests.length - 1) {
-        string += 'and ' + this.interests[i] + '.';
-      } else {
-        string += this.interests[i] + ', ';
-      }
+  var myPara = document.createElement('p');
+  myPara.textContent = 'Hometown: ' + jsonObj['homeTown'] + ' // Formed: ' + jsonObj['formed'];
+  header.appendChild(myPara);
+}
+
+function showHeroes(jsonObj) {
+  var heroes = jsonObj['members'];
+      
+  for (var i = 0; i < heroes.length; i++) {
+    var myArticle = document.createElement('article');
+    var myH2 = document.createElement('h2');
+    var myPara1 = document.createElement('p');
+    var myPara2 = document.createElement('p');
+    var myPara3 = document.createElement('p');
+    var myList = document.createElement('ul');
+
+    myH2.textContent = heroes[i].name;
+    myPara1.textContent = 'Secret identity: ' + heroes[i].secretIdentity;
+    myPara2.textContent = 'Age: ' + heroes[i].age;
+    myPara3.textContent = 'Superpowers:';
+        
+    var superPowers = heroes[i].powers;
+    for (var j = 0; j < superPowers.length; j++) {
+      var listItem = document.createElement('li');
+      listItem.textContent = superPowers[j];
+      myList.appendChild(listItem);
     }
+
+    myArticle.appendChild(myH2);
+    myArticle.appendChild(myPara1);
+    myArticle.appendChild(myPara2);
+    myArticle.appendChild(myPara3);
+    myArticle.appendChild(myList);
+
+    section.appendChild(myArticle);
   }
-  // finally, with the string built, we alert() it
-  alert(string);
-};
-
-Person.prototype.greeting = function() {
-  alert('Hi! I\'m ' + this.name.first + '.');
-};
-
-Person.prototype.farewell = function() {
-  alert(this.name.first + ' has left the building. Bye for now!');
 }
-
-var person1 = new Person('Tammi', 'Smith', 17, 'female', ['music', 'skiing', 'kickboxing']);
