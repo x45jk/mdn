@@ -1,33 +1,8 @@
-html, body {
-  margin: 0;
+li {
+  margin-bottom: 10px;
 }
-
-html {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  height: 100%;
-}
-
-body {
-  overflow: hidden;
-  height: inherit;
-}
-
-h1 {
-  font-size: 2rem;
-  letter-spacing: -1px;
-  position: absolute;
-  margin: 0;
-  top: -4px;
-  right: 5px;
-
-  color: transparent;
-  text-shadow: 0 0 4px white;
-}
-
-#counter {
-  color: #fff;
-  position: absolute;
-  font-weight: bold;
-  top: 30px;
-  right: 5px;
+li button {
+  font-size: 8px;
+  margin-left: 20px;
+  color: #666;
 }
