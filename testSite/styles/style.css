@@ -1,8 +1,13 @@
-li {
-  margin-bottom: 10px;
+html {
+  font-family: sans-serif;
 }
-li button {
-  font-size: 8px;
-  margin-left: 20px;
-  color: #666;
+body {
+  width: 50%;
+  max-width: 800px;
+  min-width: 480px;
+  margin: 0 auto;
+}
+.lastResult {
+  color: white;
+  padding: 3px;
 }
